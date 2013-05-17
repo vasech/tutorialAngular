@@ -1,14 +1,14 @@
 <!doctype html>
-<html lang="en" ng-app>
+<html lang="en" ng-app ng-controller="faceListCtrl">
 <head>
   <meta charset="utf-8">
-  <title>{{ddd}}</title>
+  <title ng-bind-template="{{ddd}}"></title>
   <link rel="stylesheet" href="css/app.css">
   <link rel="stylesheet" href="css/bootstrap.css">
   <script src="lib/angular/angular.js"></script>
   <script src="js/controllers.js"></script>
 </head>
-<body ng-controller="faceListCtrl">
+<body>
 	<div>
 		Search: <input ng-model="ddd">
 	</div>
@@ -19,7 +19,7 @@
   </div>
 
   <div style="height:300px"></div>
-  <div>Yo, your input: {{ddd}}</div>
+  <div id="status">Current filter: {{ddd}}</div>
   <div>Total nr. of faces: {{faces.length}}</div>
   <div>{{test}}</div>
 
