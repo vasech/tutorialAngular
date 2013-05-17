@@ -4,14 +4,17 @@
 
 describe('PhoneCat controllers', function() {
 	describe('faceListCtrl', function(){
-		var scope, ctrl;
+		var scope, ctrl, $httpBackend;
 
-		beforeEach(function(){
-			scope={},
-			ctrl=new faceListCtrl(scope);
-		});
+		beforeEach(inject(function(_$httpBackend_, $rootScope, $controller){
+			$httpBackend = _$httpBackend_;
+			$httpBackend.expectGET('faces/faces.json').respond([{name:'Che Guevara'},{name:'Wladimir Iljitsch Lenin'}]);
 
-		it('should create "faces" model with 2 faces', function(){
+			scope=$rootScope.$new();
+			ctrl=$controller(PhoneListCtrl, {$scope: scope});
+		})
+
+		it('should create "faces" model with 2 faces fetched from xhr', function(){
 			expect(scope.faces.length).toBe(3);
 		});
 
