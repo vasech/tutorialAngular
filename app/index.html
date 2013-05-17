@@ -2,19 +2,24 @@
 <html lang="en" ng-app>
 <head>
   <meta charset="utf-8">
-  <title>Some Persons Gallery</title>
+  <title>{{ddd}}</title>
   <link rel="stylesheet" href="css/app.css">
   <link rel="stylesheet" href="css/bootstrap.css">
   <script src="lib/angular/angular.js"></script>
   <script src="js/controllers.js"></script>
 </head>
 <body ng-controller="faceListCtrl">
+	<div>
+		Search: <input ng-model="ddd">
+	</div>
 
-  <div ng-repeat="face in faces">
+  <div class="faces" ng-repeat="face in faces | filter:ddd">
   	<div>{{face.name}}</div>
-  	<div>{{face.gender}}</div>
+  	<div>age: {{face.age}}</div>
   </div>
 
+  <div style="height:300px"></div>
+  <div>Yo, your input: {{ddd}}</div>
   <div>Total nr. of faces: {{faces.length}}</div>
   <div>{{test}}</div>
 
