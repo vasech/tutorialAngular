@@ -4,11 +4,12 @@
 function faceListCtrl($scope){
 	$scope.faces=[
 		{"name":"Che Guevara",
-		"age":"39"},
+		"age":39},
 		{"name":"Michail Sergejewitsch Gorbatschow",
-		"age":"82"},
+		"age":82},
 		{"name":"Wladimir Iljitsch Lenin",
-		"age":"46"}
+		"age":46}
 	];
 	$scope.test= "testing here around";
+	$scope.orderProp='age';
 }

@@ -1,22 +1,28 @@
 <!doctype html>
-<html lang="en" ng-app ng-controller="faceListCtrl">
+<html lang="en" ng-app>
 <head>
   <meta charset="utf-8">
-  <title ng-bind-template="{{ddd}}"></title>
+  <title>stuff</title>
   <link rel="stylesheet" href="css/app.css">
   <link rel="stylesheet" href="css/bootstrap.css">
   <script src="lib/angular/angular.js"></script>
   <script src="js/controllers.js"></script>
 </head>
-<body>
+<body ng-controller="faceListCtrl">
 	<div>
 		Search: <input ng-model="ddd">
+		Sort by:
+		<select ng-model="orderProp">
+			<option value="name">Alphabetical</option>
+			<option value="age">Age</option>
+		</select>
 	</div>
-
-  <div class="faces" ng-repeat="face in faces | filter:ddd">
-  	<div>{{face.name}}</div>
-  	<div>age: {{face.age}}</div>
-  </div>
+	<div class="faces">
+	  <li ng-repeat="face in faces | filter:ddd | orderBy:orderProp">
+	  	name: {{face.name}}
+	  	age: {{face.age}}
+	  </li>
+	</div>
 
   <div style="height:300px"></div>
   <div id="status">Current filter: {{ddd}}</div>
