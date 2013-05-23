@@ -5,7 +5,7 @@
 describe('Faces App', function() {
 	describe('Faces list view', function() {
 		beforeEach(function(){
-			browser().navigateTo('../../app/index.html');
+			browser().navigateTo('../../app/index.html#/faces');
 		});
 		it('Should filter the face list as user types into the search box',function(){
 			expect(repeater('.faces li').count()).toBe(3);
@@ -30,6 +30,19 @@ describe('Faces App', function() {
 
 				expect(element('#status').text()).toMatch(/Current filter: che\s*$/);
 				//using('#status').expect(binding('ddd')).toBe('che');
-			});
+		});
+		it('should render faces specific links', function(){
+			input('ddd').enter('Cheguevara');
+			element('.faces li a').click();
+			expect(browser().location().url()).toBe('/faces/cheguevara');
+		});
+	});
+	describe('Faces detail view', function(){
+		beforeEach(function(){
+			browser().navigateTo('../../app/index.html#/faces/cheguevara');
+		});
+		it('should display placeholder page with faceId', function(){
+			expect(binding('faceId')).toBe('cheguevara');
+		});
 	});
 });

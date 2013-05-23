@@ -1,10 +1,13 @@
 'use strict';
 
 /* Controllers */
-function faceListCtrl($scope, $http){
+function FaceListCtrl($scope, $http){
 	$http.get('faces/faces.json').success(function(data){
 		$scope.faces=data;
 	})
 	$scope.orderProp='age';
 }
-faceListCtrl.$inject=['$scope','$http'];
+function FaceDetailCtrl($scope, $routeParams){
+	$scope.faceId=$routeParams.faceId;
+}
+//faceListCtrl.$inject=['$scope','$http'];

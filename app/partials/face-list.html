@@ -1,0 +1,21 @@
+<div>
+	Search: <input ng-model="ddd">
+	Sort by:
+	<select ng-model="orderProp">
+		<option value="name">Alphabetical</option>
+		<option value="age">Age</option>
+	</select>
+</div>
+<div class="faces">
+  <li ng-repeat="face in faces | filter:ddd | orderBy:orderProp" class="thumbnail">
+  	<a href="#/faces/{{face.id}}" class="thumb"><img height="200" ng-src="{{face.imageUrl}}"></a>
+  	<a href="#/faces/{{face.id}}">{{face.name}}</a>
+  	age: {{face.age}}
+  </li>
+</div>
+
+<div style="height:300px"></div>
+<div id="status">Current filter: {{ddd}}</div>
+<div>Rawr: {{orderProp}}</div>
+<div>Phones json: {{phones | json}}</div>
+<div>Total nr. of faces: {{faces.length}}</div>
