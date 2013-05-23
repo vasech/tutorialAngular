@@ -1,5 +1,6 @@
 <img ng-src="{{face.images[0]}}" class="face" width="200">
 <h1>{{face.name}}</h1>
+<h2>{{face.id}}</h2>
 
 <div>location</div>
 <li ng-repeat="loc in face.location">
@@ -16,3 +17,6 @@
 <div>remember: {{face.remember}}</div>
 <div>Does he likes America? {{face.likes.america}}</div>
 <div>Favorite: {{face.likes.favorite}}</div>
+<div></div>
+<div>LIKES TUPMAN?</div>
+<div>{{face.likes.tupman | ddda}}</div>

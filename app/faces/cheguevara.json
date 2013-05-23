@@ -14,7 +14,8 @@
     "likes": {
         "russia": true, 
         "america": false, 
-        "favorite": "kuba"
+        "favorite": "kuba",
+        "tupman": true
     },
     "images": [
         "img/faces/che.jpg",

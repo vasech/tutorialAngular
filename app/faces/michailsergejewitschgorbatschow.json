@@ -14,7 +14,8 @@
     "likes": {
         "russia": true,
         "america": false,
-        "favorite": "Russia"
+        "favorite": "Russia",
+        "tupman": true
     },
     "images": [
         "img/faces/gorbatschow.jpg",

@@ -3,7 +3,7 @@
 /* jasmine specs for controllers go here */
 
 describe('PhoneCat controllers', function() {
-	describe('faceListCtrl', function(){
+	describe('FaceListCtrl', function(){
 		var scope, ctrl, $httpBackend;
 
 		beforeEach(inject(function(_$httpBackend_, $rootScope, $controller){
@@ -24,11 +24,32 @@ describe('PhoneCat controllers', function() {
 				{name:'Wladimir Iljitsch Lenin'}]);
 		});
 
+
 		it('should set the default value of orderProp model', function(){
 			expect(scope.orderProp).toBe('age');
 		});
 	
 	});
-	describe('PhoneDetailCtrl', function(){
+
+	describe('FaceDetailCtrl', function(){
+		var scope, ctrl, $httpBackend;
+
+		beforeEach(inject(function(_$httpBackend_, $rootScope, $routeParams, $controller){
+			$httpBackend = _$httpBackend_;
+			$httpBackend.expectGET('faces/xyz.json').
+				respond({name:'face xyz'});
+
+			$routeParams.faceId = "xyz";
+			scope=$rootScope.$new();
+			ctrl=$controller(FaceDetailCtrl, {$scope: scope});
+		}));
+
+		it('should fetch face detail', function(){
+			expect(scope.face).toBeUndefined();
+			$httpBackend.flush();
+
+			expect(scope.face).toEqual({name:"face xyz"});
+		});
+
     });
 });

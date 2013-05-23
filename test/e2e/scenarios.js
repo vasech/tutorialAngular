@@ -41,8 +41,8 @@ describe('Faces App', function() {
 		beforeEach(function(){
 			browser().navigateTo('../../app/index.html#/faces/cheguevara');
 		});
-		it('should display placeholder page with faceId', function(){
-			expect(binding('faceId')).toBe('cheguevara');
+		it('should display cheguevara page', function(){
+			expect(binding('face.id')).toBe('cheguevara');
 		});
 	});
 });
