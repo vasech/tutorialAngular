@@ -1,18 +1,16 @@
 'use strict';
 
 /* Controllers */
-function FaceListCtrl($scope, $http){
-	$http.get('faces/faces.json').success(function(data){
-		$scope.faces=data;
-	})
+function FaceListCtrl($scope, Face){
+	$scope.faces = Face.query();
 	$scope.orderProp='age';
 }
-//FaceListCtrl.$inject=['$scope', '$http'];
-function FaceDetailCtrl($scope, $routeParams, $http){
-	$http.get('faces/'+ $routeParams.faceId +'.json').success(function(data){
-		$scope.face = data;
-		$scope.mainImageUrl = data.images[0];
+//FaceListCtrl.$inject=['$scope', 'Face'];
+function FaceDetailCtrl($scope, $routeParams, Face){
+	$scope.face = Face.get({faceId: $routeParams.faceId}, function(face){
+		$scope.mainImageUrl = face.images[0];
 	});
+	
 	$scope.setImage = function(imageUrl){
 		$scope.mainImageUrl = imageUrl;
 	}
@@ -21,4 +19,4 @@ function FaceDetailCtrl($scope, $routeParams, $http){
   }
 }
 
-//FaceDetailCtrl.$inject=['$scope','$routeParams', '$http'];
+//FaceDetailCtrl.$inject=['$scope','$routeParams', 'Face'];

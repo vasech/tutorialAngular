@@ -1,7 +1,7 @@
 'use strict';
 
 /* App Module */
-angular.module('facecat',['facecatFilters']).
+angular.module('facecat',['facecatFilters', 'facecatServices']).
 	config(['$routeProvider', function($routeProvider){
 	$routeProvider.
 		when('/faces',{templateUrl:'partials/face-list.html', controller: FaceListCtrl}).
