@@ -7,11 +7,11 @@ function FaceListCtrl($scope, $http){
 	})
 	$scope.orderProp='age';
 }
-//faceListCtrl.$inject=['$scope', '$http'];
+//FaceListCtrl.$inject=['$scope', '$http'];
 function FaceDetailCtrl($scope, $routeParams, $http){
-	$http.get('faces/'+$routeParams.faceId+'.json').success(function(data){
+	$http.get('faces/'+ $routeParams.faceId +'.json').success(function(data){
 		$scope.face = data;
 	});
 }
 
-//faceDetailCtrl.$inject=['$scope','$routeParams', '$http'];
+//FaceDetailCtrl.$inject=['$scope','$routeParams', '$http'];
