@@ -1,4 +1,4 @@
-<img ng-src="{{face.images[0]}}" class="face" width="200">
+<img ng-src="{{mainImageUrl}}" class="facethumb" width="200">
 <h1>{{face.name}}</h1>
 <h2>{{face.id}}</h2>
 
@@ -8,9 +8,12 @@
 </li>
 
 <div>He likes Russia? {{face.likes.russia}}</div>
-<li ng-repeat="img in face.images">
-  <img ng-src="{{img}}" width="200">
+<ul>
+  <li ng-repeat="img in face.images">
+  <img ng-src="{{img}}" width="200" class="smallthumb" ng-click="setImage(img)">
 </li>
+</ul>
+
 
 <div>gender: {{face.gender}}</div>
 <div>avaiability: {{face.avaiability[0]}}</div>
@@ -20,3 +23,5 @@
 <div></div>
 <div>LIKES TUPMAN?</div>
 <div>{{face.likes.tupman | ddda}}</div>
+
+<button ng-click="hello('Elmo')">Hello</button>

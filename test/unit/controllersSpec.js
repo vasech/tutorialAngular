@@ -32,12 +32,17 @@ describe('PhoneCat controllers', function() {
 	});
 
 	describe('FaceDetailCtrl', function(){
-		var scope, ctrl, $httpBackend;
+		var scope, ctrl, $httpBackend,
+			xyzFaceData = function(){
+				return{
+					name:'face xyz',
+					images:['image/url1.png','image/url2.png']
+				}
+			};
 
 		beforeEach(inject(function(_$httpBackend_, $rootScope, $routeParams, $controller){
 			$httpBackend = _$httpBackend_;
-			$httpBackend.expectGET('faces/xyz.json').
-				respond({name:'face xyz'});
+			$httpBackend.expectGET('faces/xyz.json').respond(xyzFaceData());
 
 			$routeParams.faceId = "xyz";
 			scope=$rootScope.$new();
@@ -48,7 +53,7 @@ describe('PhoneCat controllers', function() {
 			expect(scope.face).toBeUndefined();
 			$httpBackend.flush();
 
-			expect(scope.face).toEqual({name:"face xyz"});
+			expect(scope.face).toEqual(xyzFaceData());
 		});
 
     });

@@ -44,5 +44,15 @@ describe('Faces App', function() {
 		it('should display cheguevara page', function(){
 			expect(binding('face.id')).toBe('cheguevara');
 		});
+		it('should display the first face image at the main face page', function(){
+			expect(element('.facethumb').attr('src')).toBe('img/faces/che.jpg');
+		});
+		it('should swap main image if a thumbnail was clicked on', function(){
+			element('li:nth-child(2) img').click();
+			expect(element('img.facethumb').attr('src')).toBe('img/faces/che2.jpg');
+
+			element('li:nth-child(1) img').click();
+			expect(element('img.facethumb').attr('src')).toBe('img/faces/che.jpg');
+		});
 	});
 });
