@@ -2,7 +2,17 @@
 
 /* jasmine specs for controllers go here */
 
-describe('PhoneCat controllers', function() {
+beforeEach(function(){
+	this.addMatchers({
+		toEqualData: function(expected){
+			return angular.equals(this.actual, expected);
+		}
+	});
+});
+
+beforeEach(module('facecatServices'));
+
+describe('PhoneCat controllers', function() {	
 	describe('FaceListCtrl', function(){
 		var scope, ctrl, $httpBackend;
 
@@ -17,11 +27,11 @@ describe('PhoneCat controllers', function() {
 
 
 		it('should create "faces" model with 2 faces fetched from xhr', function(){
-			expect(scope.faces).toBeUndefined();
+			expect(scope.faces).toEqual([]);
 			$httpBackend.flush();
 
-			expect(scope.faces).toEqual([{name:'Che Guevara'},
-				{name:'Wladimir Iljitsch Lenin'}]);
+			expect(scope.faces).toEqualData(
+				[{name:'Che Guevara'}, {name:'Wladimir Iljitsch Lenin'}]);
 		});
 
 
@@ -50,10 +60,10 @@ describe('PhoneCat controllers', function() {
 		}));
 
 		it('should fetch face detail', function(){
-			expect(scope.face).toBeUndefined();
+			expect(scope.face).toEqualData({});
 			$httpBackend.flush();
 
-			expect(scope.face).toEqual(xyzFaceData());
+			expect(scope.face).toEqualData(xyzFaceData());
 		});
 
     });
