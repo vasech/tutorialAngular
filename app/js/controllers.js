@@ -7,7 +7,11 @@ function FaceListCtrl($scope, $http){
 	})
 	$scope.orderProp='age';
 }
-function FaceDetailCtrl($scope, $routeParams){
-	$scope.faceId=$routeParams.faceId;
+//faceListCtrl.$inject=['$scope', '$http'];
+function FaceDetailCtrl($scope, $routeParams, $http){
+	$http.get('faces/'+$routeParams.faceId+'.json').success(function(data){
+		$scope.face = data;
+	});
 }
-//faceListCtrl.$inject=['$scope','$http'];
+
+//faceDetailCtrl.$inject=['$scope','$routeParams', '$http'];

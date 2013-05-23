@@ -1,1 +1,23 @@
-+TBD: detail view for {{faceId}}
+{{faceId}}
+<img ng-src="{{face.images[0]}}" class="face">
+<h1>{{face.name}}</h1>
+
+<div>location</div>
+<li ng-repeat="loc in face.location">
+  <img ng-src="{{loc}}">
+</li>
+
+<div>He likes {{face.location.russia}}</div>
+<li ng-repeat="img in face.images">
+  <img ng-src="{{img}}">
+</li>
+
+<div>gender: {{face.gender}}</div>
+<div>avaiability: {{face.avaiability}}</div>
+<div>remember: {{face.remember}}</div>
+
+<div>likes</div>
+<li ng-repeat="like in face.likes">
+  <img ng-src="{{like}}">
+</li>
+{{ddd.}}
