@@ -1,4 +1,4 @@
-<img ng-src="{{face.images[0]}}" class="face">
+<img ng-src="{{face.images[0]}}" class="face" width="200">
 <h1>{{face.name}}</h1>
 
 <div>location</div>
@@ -6,16 +6,13 @@
   {{loc}}
 </li>
 
-<div>He likes {{face.location.russia}}</div>
+<div>He likes Russia? {{face.likes.russia}}</div>
 <li ng-repeat="img in face.images">
-  <img ng-src="{{img}}">
+  <img ng-src="{{img}}" width="200">
 </li>
 
 <div>gender: {{face.gender}}</div>
-<div>avaiability: {{face.avaiability}}</div>
+<div>avaiability: {{face.avaiability[0]}}</div>
 <div>remember: {{face.remember}}</div>
-
-<div>likes</div>
-<li ng-repeat="like in face.likes">
-  {{like}}
-</li>
+<div>Does he likes America? {{face.likes.america}}</div>
+<div>Favorite: {{face.likes.favorite}}</div>

@@ -1,4 +1,5 @@
 {
+    "id":"cheguevara",
     "name":"Che",
     "location":{
         "galaxy":"Human",
@@ -18,5 +19,5 @@
     "images": [
         "img/faces/che.jpg",
         "img/faces/che2.jpg"
-    ], 
+    ]
 }

@@ -1,22 +1,23 @@
 {
+    "id": "wladimiriljitschlenin",
     "name":"Che",
     "location":{
         "galaxy":"Human",
         "planet":"World",
-        "nation":"Kuba"
+        "nation":"Russia"
     },
     "avaiability":[
         "no"
     ],
     "gender":"he was a male",
-    "remember":"He was born in Kuba \u2019 and he is with us! \u2122 yeah!",
+    "remember":"He was born in Russia \u2019. \u2122 yeah!",
     "likes": {
         "russia": true, 
         "america": false, 
-        "favorite": "kuba"
+        "favorite": "Russia"
     },
     "images": [
         "img/faces/lenin.jpg",
         "img/faces/lenin2.jpg"
-    ], 
+    ]
 }
